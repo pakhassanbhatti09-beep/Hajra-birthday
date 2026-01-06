@@ -3,286 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Hajra ✨</title>
+<title>Happy Birthday Hajra ✨</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600;1,700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-html,body{width:100%;height:100%;overflow:hidden;font-family:'Poppins',sans-serif;color:#fff;}
 body{
-  background: linear-gradient(to bottom, #0b0033, #240046, #6a0572);
-  background-size: 200% 200%;
-  animation:bgMove 22s ease infinite;
+  margin:0;
+  padding:0;
+  height:100vh;
+  background: radial-gradient(circle at top, #1b0036, #050010 70%);
+  font-family:'Playfair Display',serif;
+  overflow:hidden;
 }
-@keyframes bgMove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%;}}
 
 /* stars */
-.star{position:absolute;width:2px;height:2px;background:white;border-radius:50%;opacity:.7;animation:twinkle 2s infinite alternate;}
-@keyframes twinkle{from{opacity:.3}to{opacity:1}}
-
-/* intro overlay */
-#intro{
-  position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:1.5rem;z-index:10;cursor:pointer;transition:opacity 1s;
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity:0.5;
 }
-#intro.fade-out{opacity:0;pointer-events:none;}
-#intro span{margin-top:14px;font-size:.9rem;font-style:italic;opacity:.85;}
+
+/* start screen */
+#start{
+  position:fixed;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  cursor:pointer;
+}
+
+#start h2{
+  font-weight:400;
+  font-style:italic;
+  opacity:0.9;
+}
 
 /* card */
-.container{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;transform:translateY(50px);transition:all 1s ease;}
-.container.visible{opacity:1;transform:translateY(0);}
-.card{max-width:540px;padding:55px 42px;border-radius:30px;background:rgba(255,255,255,.14);backdrop-filter:blur(22px);box-shadow:0 45px 100px rgba(0,0,0,.5);text-align:center;}
+#card{
+  display:none;
+  position:relative;
+  max-width:85%;
+  margin:40px auto;
+  padding:35px 25px;
+  background:linear-gradient(180deg,#2a0a4a,#3b0d5e);
+  border-radius:28px;
+  color:white;
+  box-shadow:0 0 40px rgba(255,255,255,0.15);
+  text-align:center;
+}
 
 /* text */
-h1{font-family:'Playfair Display',serif;font-size:2.9rem;text-shadow:0 0 30px rgba(255,255,255,.4);}
-h2{margin-top:10px;font-weight:300;cursor:pointer;}
-.glow{animation:nameGlow 3s ease infinite alternate;}
-@keyframes nameGlow{from{text-shadow:0 0 10px #fff}to{text-shadow:0 0 40px #ff9ecb;}}
-#countdown{margin:14px 0 26px;font-size:.9rem;font-style:italic;opacity:.85;}
-#message{font-family:'Playfair Display',serif;font-style:italic;font-size:1.08rem;line-height:1.95;min-height:340px;}
-#hidden-secret{display:none;}
-.signature{margin-top:30px;font-size:.9rem;font-style:italic;opacity:.85;}
+h1{
+  font-size:2.4rem;
+  font-weight:700;
+  font-style:italic;
+  margin-bottom:5px;
+}
 
-/* floating hearts & flowers */
-.heart{position:absolute;bottom:-20px;font-size:18px;animation:floatUp linear forwards;}
-@keyframes floatUp{to{transform:translateY(-120vh);opacity:0}}
+h3{
+  font-weight:400;
+  opacity:0.9;
+  margin-bottom:25px;
+}
 
-/* tap hearts */
-.touch-heart{position:fixed;font-size:14px;color:white;pointer-events:none;animation:touchPop 1.6s ease forwards;}
-@keyframes touchPop{0%{transform:scale(0);opacity:1}30%{transform:scale(1.2)}100%{transform:translateY(-40px) scale(.4);opacity:0}}
+p{
+  font-style:italic;
+  line-height:1.9;
+  margin:14px 0;
+  opacity:0;
+  transition:opacity 1.2s ease;
+}
 
-/* final particles */
-.particle{position:fixed;width:5px;height:5px;border-radius:50%;background:white;pointer-events:none;opacity:.8;animation:particleAnim 2s linear forwards;}
-@keyframes particleAnim{0%{transform:translate(0,0) scale(1);opacity:.8}100%{transform:translate(var(--x),var(--y)) scale(0);opacity:0}}
+/* signature */
+.signature{
+  margin-top:35px;
+  font-style:italic;
+  opacity:0.85;
+}
 
-/* sparkle trail */
-.sparkle{position:fixed;width:6px;height:6px;border-radius:50%;background:white;pointer-events:none;opacity:.9;animation:sparkleAnim 0.8s linear forwards;}
-@keyframes sparkleAnim{0%{transform:scale(0);opacity:1}50%{transform:scale(1.4)}100%{transform:scale(0);opacity:0}}
+/* floating hearts */
+.heart{
+  position:fixed;
+  bottom:-10px;
+  font-size:16px;
+  animation:floatUp linear forwards;
+  pointer-events:none;
+}
+
+@keyframes floatUp{
+  to{
+    transform:translateY(-120vh);
+    opacity:0;
+  }
+}
+
+/* tap effects */
+.tap-heart{
+  position:absolute;
+  font-size:18px;
+  animation:tapFade 1.5s forwards;
+  pointer-events:none;
+}
+
+@keyframes tapFade{
+  to{
+    transform:translateY(-40px);
+    opacity:0;
+  }
+}
+
+.spark{
+  position:absolute;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:white;
+  animation:sparkFade 1s forwards;
+}
+
+@keyframes sparkFade{
+  to{
+    transform:scale(0);
+    opacity:0;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<script>
-for(let i=0;i<140;i++){
-  let s=document.createElement("div");
-  s.className="star";
-  s.style.left=Math.random()*100+"vw";
-  s.style.top=Math.random()*100+"vh";
-  s.style.animationDuration=2+Math.random()*3+"s";
-  document.body.appendChild(s);
-}
-</script>
-
-<div id="intro">
-  Tap softly ✨
-  <span>— from someone who admires you quietly</span>
+<!-- START -->
+<div id="start">
+  <h2>Tap anywhere ✨<br><br>— from someone who quietly admires you</h2>
 </div>
 
-<div class="container">
-  <div class="card">
-    <h1>Happy Birthday</h1>
-    <h2 id="name">Hajra Khan 🌙</h2>
-    <div id="countdown"></div>
-    <div id="message"></div>
-    <div id="hidden-secret"></div>
-    <div class="signature">— Hassan Bhatti 💌</div>
-  </div>
+<!-- CARD -->
+<div id="card">
+  <h1>Happy Birthday</h1>
+  <h3>Hajra Khan 🌙</h3>
+
+  <p>On this eighth day of January, the universe grew gentler, as if the stars themselves leaned closer.</p>
+  <p>I never thought I would open my world so quietly, nor feel comfort arrive so softly.</p>
+  <p>I still remember your first message — “Aap ki age kia hai, taake main aap ko reels send kar sakun?”</p>
+  <p>And somehow, nine months passed, woven with ease, laughter, and a friendship I thank Allah for.</p>
+  <p>May your days bloom like unseen flowers, and may your light remain timeless.</p>
+
+  <div class="signature">— Hassan Bhatti 💌</div>
 </div>
 
-<audio id="music" preload="auto" loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_58f3a0b68b.mp3" type="audio/mpeg">
-</audio>
-
 <script>
-const intro=document.getElementById("intro");
-const container=document.querySelector(".container");
-const music=document.getElementById("music");
-const msg=document.getElementById("message");
-const countdown=document.getElementById("countdown");
-const name=document.getElementById("name");
+const start=document.getElementById("start");
+const card=document.getElementById("card");
+const paragraphs=document.querySelectorAll("p");
 
-/* intro click => transition */
-intro.onclick=()=>{
-  intro.classList.add("fade-out");
-  container.classList.add("visible");
-  music.volume=0; music.play();
-  let v=0; let fade=setInterval(()=>{v+=0.02;music.volume=v;if(v>=0.7)clearInterval(fade);},120);
-  typeText(poemLines);
-};
-name.onclick=()=>name.classList.toggle("glow");
-
-/* IST birthday and secret times */
-const birthdayIST = new Date(Date.UTC(2026,0,7,18,30,0)); // 8 Jan 00:00 IST
-const secretTriggerTime = new Date(Date.UTC(2026,0,7,18,0,0)); // 30 min before IST
-let unlocked=false;
-
-function updateCountdown(){
-  let now = new Date();
-  let diff = birthdayIST - now;
-  
-  // trigger secret poem 30 min before midnight IST
-  if(!unlocked && now >= secretTriggerTime){
-    displayLines(secretLines, msg);
-    unlocked = true;
-    spawnFinalParticles();
-  }
-  
-  if(diff <=0){
-    countdown.innerHTML = "✨ Today belongs to you ✨";
-    return;
-  }
-  
-  let d=Math.floor(diff/86400000);
-  let h=Math.floor(diff%86400000/3600000);
-  let m=Math.floor(diff%3600000/60000);
-  countdown.innerHTML=`${d} days • ${h} hours • ${m} minutes`;
-}
-setInterval(updateCountdown,1000);
-
-/* Poems */
-const poemLines = [
-  "On the eighth of January,",
-  "the heavens themselves pause to bow,",
-  "whispering your name in silver hush.",
-
-  "",
-  "May joy find you as the sun finds morning,",
-  "may peace sit softly beside your heart,",
-  "and may every dream you cradle",
-  "bloom gently, like flowers in secret gardens.",
-
-  "",
-  "Some souls shine like tempestuous stars,",
-  "but yours quiet, tender, eterna",
-  "turns the ordinary world into poetry. ✨🌸"
-];
-
-const secretLines = [
-  "💫 FINAL SECRET POEM 💫",
-  "Hajra after my mother and sister you are the
-  first ever girl after my mother and sister with 
-  whom ibtalked this freely.Never did I imagine I would
-  be this comfortable with a girl . i still remember the 
-    first text you sent me that
-    Aap ki kia age hai ,taake aap ko reels send kar 
-      sakun 
-        And after that reels after reels. I am sincerely grateful
-          for your friendship . May Allah be with you Always 🌷💖"
-];
-
-const hiddenSecret = [
-  "🌙 Whispered only to you 🌙",
-  "Every star tonight is a note of your name,",
-  "Every breeze carries a gentle promise,",
-  "That someone smiles quietly, eternally,",
-  "Because you exist, Hajra. 💖🌷"
-];
-
-/* display lines with fade & last line tap trigger */
-function displayLines(lines, container){
-  container.textContent = "";
-  let index = 0;
-  function showNextLine(){
-    if(index >= lines.length) return;
-    const lineEl = document.createElement("div");
-    lineEl.textContent = lines[index];
-    lineEl.style.opacity = 0;
-    lineEl.style.transition = "opacity 1.2s";
-    container.appendChild(lineEl);
-    setTimeout(()=>{lineEl.style.opacity=1;},50);
-    
-    if(index===lines.length-1){
-      lineEl.style.cursor="pointer";
-      lineEl.onclick = showHiddenSecret;
+/* reveal */
+start.onclick=()=>{
+  start.style.display="none";
+  card.style.display="block";
+  let i=0;
+  function show(){
+    if(i<paragraphs.length){
+      paragraphs[i].style.opacity=1;
+      i++;
+      setTimeout(show,1300);
     }
-    
-    index++;
-    setTimeout(showNextLine,1200);
   }
-  showNextLine();
-}
+  show();
+};
 
-function typeText(lines){ displayLines(lines,msg); }
-
-/* floating hearts + flowers */
+/* floating hearts */
 setInterval(()=>{
-  let h=document.createElement("div");
+  const h=document.createElement("div");
   h.className="heart";
-  const colors=["#fff","#ffb6c1","#dab6ff","#ffc9a3"];
-  h.style.color = colors[Math.floor(Math.random()*colors.length)];
-  h.innerHTML = Math.random()<0.8?"❤":"🌸";
+  h.textContent=Math.random()<0.7?"🤍":"✨";
   h.style.left=Math.random()*100+"vw";
-  h.style.animationDuration=5+Math.random()*5+"s";
+  h.style.color=["#fff","#ffd6ff","#cdb4ff","#ffcad4"][Math.floor(Math.random()*4)];
+  h.style.animationDuration=6+Math.random()*6+"s";
   document.body.appendChild(h);
-  setTimeout(()=>h.remove(),9000);
-},450);
+  setTimeout(()=>h.remove(),10000);
+},600);
 
-/* tap hearts + sparkles */
-function spawnTouchHeart(x,y){
-  let h=document.createElement("div");
-  h.className="touch-heart";
-  h.innerHTML="🤍";
-  h.style.left=x+"px"; h.style.top=y+"px";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),1600);
+/* touch hearts + sparkles */
+document.addEventListener("click",e=>{
+  const t=document.createElement("div");
+  t.className="tap-heart";
+  t.textContent="🤍";
+  t.style.left=e.clientX+"px";
+  t.style.top=e.clientY+"px";
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(),1500);
 
-  for(let j=0;j<4;j++){
-    let p=document.createElement("div");
-    p.className="particle";
-    p.style.left=x+"px"; p.style.top=y+"px";
-    p.style.setProperty('--x',(Math.random()-0.5)*60+'px');
-    p.style.setProperty('--y',(Math.random()-0.5)*60+'px');
-    document.body.appendChild(p);
-    setTimeout(()=>p.remove(),2000);
+  for(let i=0;i<6;i++){
+    const s=document.createElement("div");
+    s.className="spark";
+    s.style.left=(e.clientX+Math.random()*20-10)+"px";
+    s.style.top=(e.clientY+Math.random()*20-10)+"px";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),1000);
   }
-}
-document.addEventListener("touchstart",e=>spawnTouchHeart(e.touches[0].clientX,e.touches[0].clientY));
-document.addEventListener("click",e=>spawnTouchHeart(e.clientX,e.clientY));
-
-/* sparkle trail */
-function spawnSparkle(x,y){
-  let s=document.createElement("div");
-  s.className="sparkle";
-  s.style.left=x+"px"; s.style.top=y+"px";
-  document.body.appendChild(s);
-  setTimeout(()=>s.remove(),800);
-}
-document.addEventListener("mousemove",e=>spawnSparkle(e.clientX,e.clientY));
-document.addEventListener("touchmove",e=>spawnSparkle(e.touches[0].clientX,e.touches[0].clientY));
-
-/* final secret particles */
-function spawnFinalParticles(){
-  for(let k=0;k<200;k++){
-    let p=document.createElement("div");
-    p.className="particle";
-    p.style.left=Math.random()*window.innerWidth+"px";
-    p.style.top=Math.random()*window.innerHeight+"px";
-    p.style.setProperty('--x',(Math.random()-0.5)*300+'px');
-    p.style.setProperty('--y',(Math.random()-0.5)*300+'px');
-    document.body.appendChild(p);
-    setTimeout(()=>p.remove(),2500);
-  }
-}
-
-/* show hidden secret poem on last line tap */
-function showHiddenSecret(){
-  const secretContainer=document.getElementById("hidden-secret");
-  secretContainer.style.display="block";
-  displayLines(hiddenSecret,secretContainer);
-  for(let i=0;i<40;i++){
-    let h=document.createElement("div");
-    h.className="heart";
-    const colors=["#fff","#ffb6c1","#dab6ff","#ffc9a3"];
-    h.style.color = colors[Math.floor(Math.random()*colors.length)];
-    h.innerHTML = Math.random()<0.8?"❤":"🌸";
-    h.style.left=Math.random()*100+"vw";
-    h.style.animationDuration=4+Math.random()*3+"s";
-    document.body.appendChild(h);
-    setTimeout(()=>h.remove(),7000);
-  }
-}
+});
 </script>
 
 </body>
-  </html>
+</html>
